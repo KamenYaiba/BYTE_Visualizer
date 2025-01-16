@@ -16,6 +16,7 @@ int getHexDigit(char c);
 
 
 
+
 int visualizeBytes(char *fileName, char mode)
 {
     bool (*bytesToStrFunc)(char*, int*, uint8_t*, int);
@@ -150,12 +151,12 @@ int restoreFile(char *fileName, char* extension)
     int charsRead = 0;
     while((charsRead = fread(str, sizeof(char), 18432, src)) != 0)
     {
-        stringToBytes16(buffer, &bufferPos, str, charsRead);
+        strToBytesFunc(buffer, &bufferPos, str, charsRead);
         fwrite(buffer, sizeof(char), bufferPos, des);
         bufferPos = 0;
     }
-    fclose(src);
     fclose(des);
+    fclose(src);
     free(str);
     free(buffer);
     return 0;
