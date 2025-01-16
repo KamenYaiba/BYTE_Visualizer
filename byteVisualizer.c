@@ -15,15 +15,6 @@ int restoreFile(char *fileName, char *extension);
 int getHexDigit(char c);
 
 
-int main()
-{
-    //visualizeBytes("login.res", 'H');
-    //restoreFile("login.b16", "od");
-    char buf[128];
-    getcwd(buf, sizeof(buf));
-    printf("%s", buf);
-}
-
 
 int visualizeBytes(char *fileName, char mode)
 {
